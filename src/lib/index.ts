@@ -1,27 +1,3 @@
-// ─── Route Constants ───────────────────────────────────────────────────────
-export const ROUTE_PATHS = {
-  HOME: '/',
-  DASHBOARD: '/',
-  // Procurement Management
-  PO_CREATE: '/po-create',
-  PO_PROCESSING: '/po-processing',
-  GOODS_RECEIPT: '/goods-receipt',
-  SUPPLIER: '/supplier',
-  COST_ANALYSIS: '/cost-analysis',
-  // Sales Management
-  SALES_ORDER: '/sales-order',
-  // Product Management
-  PRODUCT: '/product',
-  // Customer Management
-  CUSTOMER: '/customer',
-  // Sales Analysis
-  SALES_ANALYSIS: '/sales-analysis',
-  // Reports
-  REPORTS: '/reports',
-  // Settings
-  SETTINGS: '/settings',
-} as const;
-
 // ─── Types — Procurement ─────────────────────────────────────────────────
 export type ApprovalStatus =
   | 'Draft'
@@ -258,15 +234,20 @@ export interface PriceHistory {
   approvedBy: string;
 }
 
+// ─── Shared helpers ───────────────────────────────────────────────────────
+export function marginColor(pct: number) {
+  return pct >= 15 ? 'text-chart-1' : pct >= 10 ? 'text-chart-3' : 'text-destructive'
+}
+
 // ─── Formatters ────────────────────────────────────────────────────────────
 export const fmtIDR = (v: number) =>
-  'Rp ' + v.toLocaleString('id-ID');
+  'Rp ' + v.toLocaleString('ko-KR');
 
 export const fmtUSD = (v: number) =>
   '$' + v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export const fmtNum = (v: number) =>
-  v.toLocaleString('id-ID');
+  v.toLocaleString('ko-KR');
 
 export const fmtIDRCompact = (v: number) => {
   if (v >= 1_000_000_000) return `Rp ${(v / 1_000_000_000).toFixed(1)}B`;

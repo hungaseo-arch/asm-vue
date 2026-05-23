@@ -5,10 +5,11 @@ import { ROUTE_PATHS } from '@/router'
 import {
   ShoppingCart, FileText, PackageCheck, Building2, BarChart3,
   Package, Users, TrendingUp, Settings, ClipboardList,
-  Truck, Bell, Search, User, BookOpen,
+  Truck, Bell, Search, User, BookOpen, DollarSign,
 } from 'lucide-vue-next'
 import SubGroup from './SubGroup.vue'
 import { cn } from '@/lib/utils'
+import { fmtNum } from '@/lib/index'
 import { useAppStore } from '@/stores/app'
 import { storeToRefs } from 'pinia'
 
@@ -16,20 +17,22 @@ const route = useRoute()
 const appStore = useAppStore()
 const { fxRate } = storeToRefs(appStore)
 
-// 사이드바 그룹 열림/닫힘 상태 — React: useState(true) → Vue: ref(true)
 const procOpen = ref(true)
 const soOpen   = ref(true)
 const saleOpen = ref(true)
 
 const procMenu = [
-  { label: 'New PO',         path: ROUTE_PATHS.PO_CREATE,     icon: FileText },
+  { label: 'Create PO',      path: ROUTE_PATHS.PO_CREATE,     icon: FileText },
   { label: 'PO Processing',  path: ROUTE_PATHS.PO_PROCESSING, icon: ClipboardList },
   { label: 'Goods Receipt',  path: ROUTE_PATHS.GOODS_RECEIPT, icon: PackageCheck },
   { label: 'Suppliers',      path: ROUTE_PATHS.SUPPLIER,      icon: Building2 },
   { label: 'Cost Analysis',  path: ROUTE_PATHS.COST_ANALYSIS, icon: BarChart3 },
 ]
 const soMenu = [
-  { label: 'Sales (SO)', path: ROUTE_PATHS.SALES_ORDER, icon: ShoppingCart },
+  { label: 'Create SO',         path: ROUTE_PATHS.CREATE_SO,         icon: ShoppingCart },
+  { label: 'SO Processing',     path: ROUTE_PATHS.SO_PROCESSING,     icon: ClipboardList },
+  { label: 'Delivery Tracking', path: ROUTE_PATHS.DELIVERY_TRACKING, icon: Truck },
+  { label: 'Margin Analysis',   path: ROUTE_PATHS.MARGIN_ANALYSIS,   icon: DollarSign },
 ]
 const salesMenu = [
   { label: 'Products',        path: ROUTE_PATHS.PRODUCT,        icon: Package },
@@ -41,13 +44,9 @@ const bottomMenu = [
   { label: 'Settings', path: ROUTE_PATHS.SETTINGS, icon: Settings },
 ]
 
-// computed — React: location.pathname 비교 → Vue: computed + useRoute
 const isProcActive = computed(() => procMenu.some((m) => route.path === m.path))
 const isSoActive   = computed(() => soMenu.some((m) => route.path === m.path))
 const isSaleActive = computed(() => salesMenu.some((m) => route.path === m.path))
-
-// 통화 포맷
-const fmtNum = (v: number) => v.toLocaleString('id-ID')
 </script>
 
 <template>
@@ -65,7 +64,7 @@ const fmtNum = (v: number) => v.toLocaleString('id-ID')
           <Truck class="w-4 h-4 text-sidebar-primary-foreground" />
         </div>
         <span class="text-sidebar-foreground font-bold text-base tracking-tight">ASM</span>
-        <span class="text-sidebar-primary text-xs font-medium ml-1 mt-0.5">ERP</span>
+        <span class="text-sidebar-primary text-xs font-medium ml-1 mt-0.5">V2</span>
       </RouterLink>
 
       <!-- Nav -->
@@ -76,7 +75,6 @@ const fmtNum = (v: number) => v.toLocaleString('id-ID')
           <p class="px-3 text-[10px] font-semibold text-sidebar-foreground/40 uppercase tracking-wider mb-1">
             Procurement
           </p>
-          <!-- v-model:open → React의 open + onToggle prop 대체 -->
           <SubGroup
             label="Procurement (PROC)"
             :icon="ShoppingCart"
@@ -142,8 +140,8 @@ const fmtNum = (v: number) => v.toLocaleString('id-ID')
             <User class="w-4 h-4 text-sidebar-primary" />
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-sidebar-foreground text-xs font-medium truncate">Ahmad R.</p>
-            <p class="text-sidebar-foreground/50 text-[10px] truncate">Sales Manager</p>
+            <p class="text-sidebar-foreground text-xs font-medium truncate">JH SEO</p>
+            <p class="text-sidebar-foreground/50 text-[10px] truncate">General Manager</p>
           </div>
         </div>
       </div>
@@ -177,7 +175,6 @@ const fmtNum = (v: number) => v.toLocaleString('id-ID')
         </div>
       </header>
 
-      <!-- Page Content — React: {children} → Vue: <slot /> -->
       <main class="flex-1 overflow-auto bg-muted/30">
         <slot />
       </main>

@@ -120,7 +120,7 @@ function qtyPct(qty: number, total: number) {
                 >
                   <td class="px-4 py-2.5 font-mono text-foreground font-medium">{{ gr.grNo }}</td>
                   <td class="px-3 py-2.5 font-mono text-primary">{{ gr.poNo }}</td>
-                  <td class="px-3 py-2.5 text-muted-foreground max-w-[120px] truncate">{{ gr.supplier.split(' ').slice(0, 2).join(' ') }}</td>
+                  <td class="px-3 py-2.5 text-muted-foreground max-w-30 truncate">{{ gr.supplier.split(' ').slice(0, 2).join(' ') }}</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ gr.warehouse }}</td>
                   <td class="px-3 py-2.5 text-center font-mono text-muted-foreground">{{ gr.grDate }}</td>
                   <td class="px-3 py-2.5 text-right font-mono text-foreground">{{ fmtNum(gr.totalQty) }}</td>
@@ -223,12 +223,12 @@ function qtyPct(qty: number, total: number) {
           </div>
 
           <!-- Improvement Notes -->
-          <div class="bg-card rounded-xl border border-chart-3/30 bg-chart-3/5 p-4">
+          <div class="rounded-xl border border-chart-3/30 bg-chart-3/5 p-4">
             <p class="text-xs font-semibold text-chart-3 mb-2">💡 Improvements — Goods Receipt</p>
             <ul class="space-y-1.5 text-xs text-muted-foreground">
               <li class="flex gap-2"><span class="text-chart-3 shrink-0">•</span> Auto-trigger supplier claim on NG occurrence (linked to supplier code)</li>
               <li class="flex gap-2"><span class="text-chart-3 shrink-0">•</span> Container No. → real-time location tracking via shipping API integration</li>
-              <li class="flex gap-2"><span class="text-chart-3 shrink-0">•</span> Auto inventory update after receipt (WH-Jakarta, WH-Surabaya, etc.)</li>
+              <li class="flex gap-2"><span class="text-chart-3 shrink-0">•</span> Auto inventory update after receipt (WH-Surabaya, WH-Karawang, etc.)</li>
               <li class="flex gap-2"><span class="text-chart-3 shrink-0">•</span> Mobile support for inspection checklist (size, pattern, PR, packaging condition)</li>
             </ul>
           </div>

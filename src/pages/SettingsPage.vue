@@ -4,6 +4,7 @@ import Layout from '@/components/Layout.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import { Settings, User, Bell, Shield, Database, Globe, ChevronRight, Check } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
+import { fmtNum } from '@/lib/index'
 
 type SettingsSection = 'profile' | 'company' | 'notifications' | 'approval' | 'currency' | 'system'
 
@@ -23,21 +24,21 @@ const sections = [
 ]
 
 const profileFields = [
-  { l: 'Username',   v: 'Budi Santoso',       type: 'text' },
-  { l: 'Email',      v: 'budi.s@asm-corp.com', type: 'email' },
-  { l: 'Position',   v: 'Sales Manager',       type: 'text' },
+  { l: 'Username',   v: 'JH SEO',       type: 'text' },
+  { l: 'Email',      v: 'jhseo@ptascendo.com', type: 'email' },
+  { l: 'Position',   v: 'General Manager',       type: 'text' },
   { l: 'Department', v: 'Sales Division',      type: 'text' },
-  { l: 'Phone',      v: '+62 812-3456-7890',   type: 'tel' },
+  { l: 'Phone',      v: '+62 811-155-372',   type: 'tel' },
   { l: 'Warehouse',  v: 'WH-Karawang',         type: 'text' },
 ]
 
 const companyFields = [
-  { l: 'Company Name', v: 'PT. ASM Global' },
-  { l: 'Tax ID',       v: '01.234.567.8-901.000' },
-  { l: 'Address',      v: 'Jl. Industri No.15, Karawang, Jawa Barat' },
-  { l: 'CEO',          v: 'Ir. Hendra Wijaya, MM' },
-  { l: 'Phone',        v: '+62 267-4XX-XXXX' },
-  { l: 'Website',      v: 'www.asm-global.co.id' },
+  { l: 'Company Name', v: 'PT. ASCENDO INTERNATIONAL' },
+  { l: 'Tax ID',       v: '0315628396031000' },
+  { l: 'Address',      v: 'JL PALMERAH BARAT NO.8 D/H 42, RT 002, RW 003, GROGOL UTARA, KEBAYORAN LAMA, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 12210' },
+  { l: 'CEO',          v: 'Kim Jai Hun' },
+  { l: 'Phone',        v: '+62 21-530-6869' },
+  { l: 'Website',      v: 'www.ascendotyre.com/id' },
   { l: 'Fiscal Year',  v: '2025-01-01 ~ 2025-12-31' },
   { l: 'Base Currency',v: 'IDR (Indonesian Rupiah)' },
 ]
@@ -174,7 +175,7 @@ const inputClass = 'w-full h-9 px-3 text-sm rounded-md border border-input bg-ba
                 <p class="text-xs font-semibold text-foreground mb-3">SO Approval Path (5 Steps)</p>
                 <div v-for="(step, i) in soSteps" :key="i"
                   class="flex items-center gap-3 py-2 border-b border-border/50 last:border-0">
-                  <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     <span class="text-xs text-primary font-bold">{{ i + 1 }}</span>
                   </div>
                   <span class="text-sm text-foreground">{{ step }}</span>
@@ -185,7 +186,7 @@ const inputClass = 'w-full h-9 px-3 text-sm rounded-md border border-input bg-ba
                 <p class="text-xs font-semibold text-foreground mb-3">PO Approval Path (5 Steps)</p>
                 <div v-for="(step, i) in poSteps" :key="i"
                   class="flex items-center gap-3 py-2 border-b border-border/50 last:border-0">
-                  <div class="w-6 h-6 rounded-full bg-chart-2/20 flex items-center justify-center flex-shrink-0">
+                  <div class="w-6 h-6 rounded-full bg-chart-2/20 flex items-center justify-center shrink-0">
                     <span class="text-xs text-chart-2 font-bold">{{ i + 1 }}</span>
                   </div>
                   <span class="text-sm text-foreground">{{ step }}</span>
@@ -211,8 +212,8 @@ const inputClass = 'w-full h-9 px-3 text-sm rounded-md border border-input bg-ba
                     <span>Rp 15,000</span><span>Rp 17,500</span>
                   </div>
                 </div>
-                <div class="text-center min-w-[80px]">
-                  <p class="text-2xl font-bold font-mono text-primary">{{ fxRate.toLocaleString() }}</p>
+                <div class="text-center min-w-20">
+                  <p class="text-2xl font-bold font-mono text-primary">{{ fmtNum(fxRate) }}</p>
                   <p class="text-[10px] text-muted-foreground">IDR/USD</p>
                 </div>
               </div>

@@ -54,7 +54,7 @@ function stepLabel(idx: number) {
         >
           {{ stepLabel(idx) }}
         </div>
-        <p :class="cn('text-[9px] text-center leading-tight max-w-[52px]', labelClass(idx))">
+        <p :class="cn('text-[9px] text-center leading-tight max-w-13', labelClass(idx))">
           {{ step }}
         </p>
       </div>

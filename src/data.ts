@@ -5,12 +5,12 @@ import type {
 
 // ─── Purchase Orders ────────────────────────────────────────────────────────
 export const purchaseOrders: PurchaseOrder[] = [
-  { id:'1', poNo:'ASM-PO-2603-001', poDate:'2026-03-01', supplier:'Hubei Aulice Tyre Co., Ltd.', supplierCode:'SUP-CN-001', productDesc:'ASC 10.00R20 AR102HD 18PR (TBR Radial)', qty:274, unit:'Pcs', fobUsd:134.20, cifUsd:142.23, landedCostIdr:2_512_451, whPriceIdr:2_712_087, totalUsd:38_971, totalIdr:743_511_838, status:'In Transit', approvalStatus:'Confirmed', etaDate:'2026-04-15', warehouse:'WH-Jakarta', buyer:'Ahmad R.', remarks:'40FT Container x1' },
+  { id:'1', poNo:'ASM-PO-2603-001', poDate:'2026-03-01', supplier:'Hubei Aulice Tyre Co., Ltd.', supplierCode:'SUP-CN-001', productDesc:'ASC 10.00R20 AR102HD 18PR (TBR Radial)', qty:274, unit:'Pcs', fobUsd:134.20, cifUsd:142.23, landedCostIdr:2_512_451, whPriceIdr:2_712_087, totalUsd:38_971, totalIdr:743_511_838, status:'In Transit', approvalStatus:'Confirmed', etaDate:'2026-04-15', warehouse:'WH-Surabaya', buyer:'Ahmad R.', remarks:'40FT Container x1' },
   { id:'2', poNo:'ASM-PO-2603-002', poDate:'2026-03-03', supplier:'Shandong Linglong Tyre Co.', supplierCode:'SUP-CN-002', productDesc:'ASC 11.00R20 AR535 18PR (TBR Radial)', qty:548, unit:'Pcs', fobUsd:128.50, cifUsd:136.80, landedCostIdr:2_418_200, whPriceIdr:2_610_456, totalUsd:74_966, totalIdr:1_430_529_888, status:'Pending', approvalStatus:'Purchase Manager', etaDate:'2026-04-20', warehouse:'WH-Surabaya', buyer:'Budi S.' },
   { id:'3', poNo:'ASM-PO-2603-003', poDate:'2026-03-05', supplier:'Qingdao Doublestar Tire Industrial Co.', supplierCode:'SUP-CN-003', productDesc:'ASC 12.00R20 AR585 20PR (TBR Radial)', qty:192, unit:'Pcs', fobUsd:152.00, cifUsd:161.60, landedCostIdr:2_857_280, whPriceIdr:3_085_262, totalIdr:592_370_304, totalUsd:31_027, status:'Confirmed', approvalStatus:'Confirmed', etaDate:'2026-04-28', warehouse:'WH-Karawang', buyer:'Sari W.' },
-  { id:'4', poNo:'ASM-PO-2603-004', poDate:'2026-03-08', supplier:'Zhongce Rubber Group Co.', supplierCode:'SUP-CN-004', productDesc:'ASC 10.00-20 TR78 Heavy Duty Tube', qty:1200, unit:'Pcs', fobUsd:18.40, cifUsd:19.80, landedCostIdr:350_100, whPriceIdr:378_108, totalIdr:453_729_600, totalUsd:23_760, status:'Draft', approvalStatus:'Draft', etaDate:'2026-05-05', warehouse:'WH-Jakarta', buyer:'Dewi P.' },
+  { id:'4', poNo:'ASM-PO-2603-004', poDate:'2026-03-08', supplier:'Zhongce Rubber Group Co.', supplierCode:'SUP-CN-004', productDesc:'ASC 10.00-20 TR78 Heavy Duty Tube', qty:1200, unit:'Pcs', fobUsd:18.40, cifUsd:19.80, landedCostIdr:350_100, whPriceIdr:378_108, totalIdr:453_729_600, totalUsd:23_760, status:'Draft', approvalStatus:'Draft', etaDate:'2026-05-05', warehouse:'WH-Surabaya', buyer:'Dewi P.' },
   { id:'5', poNo:'ASM-PO-2602-012', poDate:'2026-02-15', supplier:'Hubei Aulice Tyre Co., Ltd.', supplierCode:'SUP-CN-001', productDesc:'ASC 7.50R16 AR102HD 14PR (LTR)', qty:400, unit:'Pcs', fobUsd:68.50, cifUsd:73.20, landedCostIdr:1_294_140, whPriceIdr:1_397_671, totalIdr:558_868_400, totalUsd:29_280, status:'Confirmed', approvalStatus:'Confirmed', etaDate:'2026-03-20', warehouse:'WH-Semarang', buyer:'Ahmad R.' },
-  { id:'6', poNo:'ASM-PO-2602-015', poDate:'2026-02-22', supplier:'Shandong Haian Rubber Co.', supplierCode:'SUP-CN-005', productDesc:'FLAP 10.00/11.00R20(S) Metal Plate', qty:2000, unit:'Pcs', fobUsd:3.80, cifUsd:4.10, landedCostIdr:72_468, whPriceIdr:78_265, totalIdr:156_530_000, totalUsd:8_200, status:'On Hold', approvalStatus:'Division Head', etaDate:'2026-04-10', warehouse:'WH-Jakarta', buyer:'Budi S.', remarks:'Quality spec review' },
+  { id:'6', poNo:'ASM-PO-2602-015', poDate:'2026-02-22', supplier:'Shandong Haian Rubber Co.', supplierCode:'SUP-CN-005', productDesc:'FLAP 10.00/11.00R20(S) Metal Plate', qty:2000, unit:'Pcs', fobUsd:3.80, cifUsd:4.10, landedCostIdr:72_468, whPriceIdr:78_265, totalIdr:156_530_000, totalUsd:8_200, status:'On Hold', approvalStatus:'Division Head', etaDate:'2026-04-10', warehouse:'WH-Surabaya', buyer:'Budi S.', remarks:'Quality spec review' },
 ];
 
 export const poLineItems: POLineItem[] = [
@@ -20,7 +20,7 @@ export const poLineItems: POLineItem[] = [
 // ─── Goods Receipts ─────────────────────────────────────────────────────────
 export const goodsReceipts: GoodsReceipt[] = [
   { id:'1', grNo:'ASM-GR-2603-001', poNo:'ASM-PO-2602-012', grDate:'2026-03-20', supplier:'Hubei Aulice Tyre Co., Ltd.', warehouse:'WH-Semarang', totalQty:400, goodQty:396, ngQty:4, status:'Completed', inspector:'Rudi T.', container:'MSCU1234567' },
-  { id:'2', grNo:'ASM-GR-2603-002', poNo:'ASM-PO-2603-001', grDate:'2026-04-15', supplier:'Hubei Aulice Tyre Co., Ltd.', warehouse:'WH-Jakarta', totalQty:274, goodQty:0, ngQty:0, status:'Pending', inspector:'-', container:'HLXU9876543' },
+  { id:'2', grNo:'ASM-GR-2603-002', poNo:'ASM-PO-2603-001', grDate:'2026-04-15', supplier:'Hubei Aulice Tyre Co., Ltd.', warehouse:'WH-Surabaya', totalQty:274, goodQty:0, ngQty:0, status:'Pending', inspector:'-', container:'HLXU9876543' },
   { id:'3', grNo:'ASM-GR-2603-003', poNo:'ASM-PO-2603-003', grDate:'2026-04-28', supplier:'Qingdao Doublestar Tire Industrial Co.', warehouse:'WH-Karawang', totalQty:192, goodQty:0, ngQty:0, status:'Pending', inspector:'-', container:'TCKU4561230' },
   { id:'4', grNo:'ASM-GR-2602-009', poNo:'ASM-PO-2602-009', grDate:'2026-02-28', supplier:'Shandong Linglong Tyre Co.', warehouse:'WH-Surabaya', totalQty:320, goodQty:312, ngQty:8, status:'Completed', inspector:'Wati N.', container:'OOLU3348821' },
 ];
@@ -77,13 +77,13 @@ export const costComposition = [
 export const salesOrders: SalesOrder[] = [
   {
     id:'so1', soNo:'ORD-260301-001', soDate:'2026-03-01', customerOrderNo:'SS-2603-001',
-    planDeliveryDate:'2026-03-10', originWH:'WH-Jakarta', salesRep:'Budi S.',
+    planDeliveryDate:'2026-03-10', originWH:'WH-Surabaya', salesRep:'Budi S.',
     customerCode:'CUST-0001', customerName:'PT Maju Jaya Motor', phone:'021-5555-1234',
     address:'Jl. Raya Bekasi No.88, Jakarta Timur', creditLimit:200_000_000, creditBalance:143_600_000,
     paymentTerms:'TOP 60', deliveryMethod:'Freight (JNE Trucking)',
     approvalStatus:'Confirmed', deliveryStatus:'Delivered', paymentStatus:'Paid',
     totalAmount:296_400_000, totalCogs:253_599_583, marginPct:14.4, qty:228,
-    trackingNo:'JNE-2603010342', originWHShip:'WH-Jakarta', shipDate:'2026-03-01', estArrival:'2026-03-02', actualArrival:'2026-03-02',
+    trackingNo:'JNE-2603010342', originWHShip:'WH-Surabaya', shipDate:'2026-03-01', estArrival:'2026-03-02', actualArrival:'2026-03-02',
     items:[
       { no:1, type:'Tire', brand:'ASCENDO', description:'ASC 11.00R20 AR535 18PR', qty:76, unitPrice:3_196_397, discPct:1.27, netPrice:3_155_936, amount:239_851_129, cogs:205_595_576, marginPct:14.3 },
       { no:2, type:'Tube', brand:'ASCENDO', description:'ASC 11.00-20 TR78 Heavy Duty', qty:76, unitPrice:298_198, discPct:1.27, netPrice:294_423, amount:22_376_174, cogs:18_162_001, marginPct:16.7 },
@@ -92,13 +92,13 @@ export const salesOrders: SalesOrder[] = [
   },
   {
     id:'so2', soNo:'ORD-260301-002', soDate:'2026-03-01', customerOrderNo:'TBM-2603-008',
-    planDeliveryDate:'2026-03-10', originWH:'WH-Jakarta', salesRep:'Sari W.',
+    planDeliveryDate:'2026-03-10', originWH:'WH-Surabaya', salesRep:'Sari W.',
     customerCode:'CUST-0023', customerName:'Toko Ban Makmur', phone:'021-7777-5678',
     address:'Jl. Gatot Subroto No.12, Jakarta Selatan', creditLimit:50_000_000, creditBalance:41_360_000,
     paymentTerms:'TOP 30', deliveryMethod:'Pickup',
     approvalStatus:'Confirmed', deliveryStatus:'Delivered', paymentStatus:'Paid',
     totalAmount:8_640_000, totalCogs:7_119_360, marginPct:17.6, qty:24,
-    trackingNo:'SCP-260301-881', originWHShip:'WH-Jakarta', shipDate:'2026-03-01', estArrival:'2026-03-02', actualArrival:'2026-03-02',
+    trackingNo:'SCP-260301-881', originWHShip:'WH-Surabaya', shipDate:'2026-03-01', estArrival:'2026-03-02', actualArrival:'2026-03-02',
     items:[
       { no:1, type:'Tire', brand:'ASCENDO', description:'ASC 10.00R20 AR102HD 18PR', qty:24, unitPrice:3_200_000, discPct:0, netPrice:3_200_000, amount:76_800_000, cogs:65_090_088, marginPct:15.25 },
     ],
@@ -119,13 +119,13 @@ export const salesOrders: SalesOrder[] = [
   },
   {
     id:'so4', soNo:'ORD-260302-004', soDate:'2026-03-02', customerOrderNo:'PLA-2603-015',
-    planDeliveryDate:'2026-03-14', originWH:'WH-Jakarta', salesRep:'Ahmad R.',
+    planDeliveryDate:'2026-03-14', originWH:'WH-Surabaya', salesRep:'Ahmad R.',
     customerCode:'CUST-0015', customerName:'PT Lancar Abadi', phone:'021-3333-4567',
     address:'Jl. Mangga Dua Raya No.33, Jakarta Utara', creditLimit:120_000_000, creditBalance:81_600_000,
     paymentTerms:'TOP 60', deliveryMethod:'Freight (ANT Express)',
     approvalStatus:'Confirmed', deliveryStatus:'In Transit', paymentStatus:'Partial',
     totalAmount:38_400_000, totalCogs:29_337_600, marginPct:23.6, qty:48,
-    trackingNo:'ANT-26030234A', originWHShip:'WH-Jakarta', shipDate:'2026-03-02', estArrival:'2026-03-06', actualArrival:undefined,
+    trackingNo:'ANT-26030234A', originWHShip:'WH-Surabaya', shipDate:'2026-03-02', estArrival:'2026-03-06', actualArrival:undefined,
     remarks:'Installment',
     items:[
       { no:1, type:'Tire', brand:'ASCENDO', description:'ASC 10.00R20 AR102HD 18PR', qty:48, unitPrice:3_200_000, discPct:0, netPrice:3_200_000, amount:153_600_000, cogs:130_180_176, marginPct:15.25 },
@@ -146,7 +146,7 @@ export const salesOrders: SalesOrder[] = [
   },
   {
     id:'so6', soNo:'ORD-260303-006', soDate:'2026-03-03', customerOrderNo:'PNT-2603-007',
-    planDeliveryDate:'2026-03-20', originWH:'WH-Jakarta', salesRep:'Ahmad R.',
+    planDeliveryDate:'2026-03-20', originWH:'WH-Surabaya', salesRep:'Ahmad R.',
     customerCode:'CUST-0031', customerName:'PT Nusantara Tire', phone:'021-9999-0123',
     address:'Jl. Yos Sudarso No.102, Jakarta Utara', creditLimit:150_000_000, creditBalance:6_000_000,
     paymentTerms:'TOP 60', deliveryMethod:'Freight (JNE Trucking)',
@@ -172,13 +172,13 @@ export const salesOrders: SalesOrder[] = [
   },
   {
     id:'so8', soNo:'ORD-260304-008', soDate:'2026-03-04', customerOrderNo:'PAP-2603-011',
-    planDeliveryDate:'2026-03-11', originWH:'WH-Jakarta', salesRep:'Budi S.',
+    planDeliveryDate:'2026-03-11', originWH:'WH-Surabaya', salesRep:'Budi S.',
     customerCode:'CUST-0009', customerName:'PT Auto Prima', phone:'021-6666-7890',
     address:'Jl. Kramat Jati No.55, Jakarta Timur', creditLimit:100_000_000, creditBalance:73_800_000,
     paymentTerms:'TOP 30', deliveryMethod:'Freight (JNE Trucking)',
     approvalStatus:'Confirmed', deliveryStatus:'Delivered', paymentStatus:'Paid',
     totalAmount:16_800_000, totalCogs:12_700_800, marginPct:24.4, qty:40,
-    trackingNo:'JNE-2603049988', originWHShip:'WH-Jakarta', shipDate:'2026-03-04', estArrival:'2026-03-05', actualArrival:'2026-03-05',
+    trackingNo:'JNE-2603049988', originWHShip:'WH-Surabaya', shipDate:'2026-03-04', estArrival:'2026-03-05', actualArrival:'2026-03-05',
     items:[
       { no:1, type:'Tube', brand:'ASCENDO', description:'ASC 10.00-20 TR78 Heavy Duty', qty:40, unitPrice:420_000, discPct:0, netPrice:420_000, amount:16_800_000, cogs:12_700_800, marginPct:24.4 },
     ],
@@ -199,20 +199,20 @@ export const salesOrders: SalesOrder[] = [
   },
   {
     id:'so10', soNo:'ORD-260305-010', soDate:'2026-03-05', customerOrderNo:'BTS-2603-005',
-    planDeliveryDate:'2026-03-12', originWH:'WH-Jakarta', salesRep:'Sari W.',
+    planDeliveryDate:'2026-03-12', originWH:'WH-Surabaya', salesRep:'Sari W.',
     customerCode:'CUST-0028', customerName:'Bengkel Top Speed', phone:'021-4444-3456',
     address:'Jl. Daan Mogot No.45, Jakarta Barat', creditLimit:25_000_000, creditBalance:19_800_000,
     paymentTerms:'COD', deliveryMethod:'Pickup',
     approvalStatus:'Confirmed', deliveryStatus:'Delivered', paymentStatus:'Paid',
     totalAmount:5_200_000, totalCogs:3_952_000, marginPct:24.0, qty:8,
-    trackingNo:'SCP-260305-447', originWHShip:'WH-Jakarta', shipDate:'2026-03-05', estArrival:'2026-03-06', actualArrival:'2026-03-06',
+    trackingNo:'SCP-260305-447', originWHShip:'WH-Surabaya', shipDate:'2026-03-05', estArrival:'2026-03-06', actualArrival:'2026-03-06',
     items:[
       { no:1, type:'Tire', brand:'ASCENDO', description:'ASC 7.50R16 AR585 14PR', qty:8, unitPrice:650_000, discPct:0, netPrice:650_000, amount:5_200_000, cogs:3_952_000, marginPct:24.0 },
     ],
   },
   {
     id:'so11', soNo:'ORD-260305-011', soDate:'2026-03-05', customerOrderNo:'PGM-2603-002',
-    planDeliveryDate:'2026-03-15', originWH:'WH-Jakarta', salesRep:'Ahmad R.',
+    planDeliveryDate:'2026-03-15', originWH:'WH-Surabaya', salesRep:'Ahmad R.',
     customerCode:'CUST-0044', customerName:'PT Gemilang Motor', phone:'021-2222-5678',
     address:'Jl. Pangeran Jayakarta No.12, Jakarta Pusat', creditLimit:70_000_000, creditBalance:70_000_000,
     paymentTerms:'TOP 45', deliveryMethod:'Freight',
@@ -257,11 +257,11 @@ export const customers: Customer[] = [
 // ─── Products ────────────────────────────────────────────────────────────────
 export const products: Product[] = [
   { id:'p1', code:'ASC-10R20-AR102HD-18', brand:'ASCENDO', category:'TBR', size:'10.00R20', pattern:'AR102HD', pr:'18', type1:'Tire', type2:'TB', type3:'Radial', fobUsd:134.20, cifUsd:142.23, whPriceIdr:2_712_087, retailPriceIdr:3_200_000, wholesalePriceIdr:3_650_000, retailMarginPct:15.25, wholesaleMarginPct:25.70, promoPriceIdr:3_000_000, promoMarginPct:9.60, minStock:50, reorderPoint:80, currentStock:1_076, bufferPct:270, warehouse:'WH-Karawang', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
-  { id:'p2', code:'ASC-11R20-AR535-18', brand:'ASCENDO', category:'TBR', size:'11.00R20', pattern:'AR535', pr:'18', type1:'Tire', type2:'TB', type3:'Radial', fobUsd:128.50, cifUsd:136.80, whPriceIdr:2_610_456, retailPriceIdr:3_196_397, wholesalePriceIdr:3_550_000, retailMarginPct:18.33, wholesaleMarginPct:26.50, promoPriceIdr:2_950_000, promoMarginPct:11.54, minStock:100, reorderPoint:150, currentStock:76, bufferPct:50, warehouse:'WH-Jakarta', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
-  { id:'p3', code:'ASC-12R20-AR585-20', brand:'ASCENDO', category:'TBR', size:'12.00R20', pattern:'AR585', pr:'20', type1:'Tire', type2:'TB', type3:'Radial', fobUsd:152.00, cifUsd:161.60, whPriceIdr:3_085_262, retailPriceIdr:3_650_000, wholesalePriceIdr:4_100_000, retailMarginPct:15.47, wholesaleMarginPct:24.76, promoPriceIdr:3_400_000, promoMarginPct:9.24, minStock:150, reorderPoint:200, currentStock:46, bufferPct:23, warehouse:'WH-Jakarta', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
+  { id:'p2', code:'ASC-11R20-AR535-18', brand:'ASCENDO', category:'TBR', size:'11.00R20', pattern:'AR535', pr:'18', type1:'Tire', type2:'TB', type3:'Radial', fobUsd:128.50, cifUsd:136.80, whPriceIdr:2_610_456, retailPriceIdr:3_196_397, wholesalePriceIdr:3_550_000, retailMarginPct:18.33, wholesaleMarginPct:26.50, promoPriceIdr:2_950_000, promoMarginPct:11.54, minStock:100, reorderPoint:150, currentStock:76, bufferPct:50, warehouse:'WH-Surabaya', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
+  { id:'p3', code:'ASC-12R20-AR585-20', brand:'ASCENDO', category:'TBR', size:'12.00R20', pattern:'AR585', pr:'20', type1:'Tire', type2:'TB', type3:'Radial', fobUsd:152.00, cifUsd:161.60, whPriceIdr:3_085_262, retailPriceIdr:3_650_000, wholesalePriceIdr:4_100_000, retailMarginPct:15.47, wholesaleMarginPct:24.76, promoPriceIdr:3_400_000, promoMarginPct:9.24, minStock:150, reorderPoint:200, currentStock:46, bufferPct:23, warehouse:'WH-Surabaya', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
   { id:'p4', code:'ASC-750R16-AR102HD-14', brand:'ASCENDO', category:'LTR', size:'7.50R16', pattern:'AR102HD', pr:'14', type1:'Tire', type2:'LTR', type3:'Radial', fobUsd:68.50, cifUsd:73.20, whPriceIdr:1_397_671, retailPriceIdr:1_750_000, wholesalePriceIdr:2_000_000, retailMarginPct:20.13, wholesaleMarginPct:30.12, promoPriceIdr:1_600_000, promoMarginPct:12.64, minStock:80, reorderPoint:120, currentStock:376, bufferPct:314, warehouse:'WH-Semarang', status:'Active', approvalStatus:'Confirmed', hsCode:'4011.20.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
-  { id:'p5', code:'ASC-1100-20TR78', brand:'ASCENDO', category:'Tube', size:'11.00-20', pattern:'TR78', pr:'HD', type1:'Tube', type2:'TB', type3:'Heavy Duty', fobUsd:18.40, cifUsd:19.80, whPriceIdr:349_740, retailPriceIdr:420_000, wholesalePriceIdr:480_000, retailMarginPct:16.73, wholesaleMarginPct:27.14, promoPriceIdr:380_000, promoMarginPct:7.97, minStock:200, reorderPoint:300, currentStock:548, bufferPct:182, warehouse:'WH-Jakarta', status:'Active', approvalStatus:'Confirmed', hsCode:'4013.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
-  { id:'p6', code:'ASC-FLAP-10R20-S', brand:'ASCENDO', category:'Flap', size:'10.00/11.00R20(S)', pattern:'-', pr:'-', type1:'Flap', type2:'TB', type3:'Metal Plate', fobUsd:3.80, cifUsd:4.10, whPriceIdr:72_468, retailPriceIdr:95_000, wholesalePriceIdr:110_000, retailMarginPct:23.72, wholesaleMarginPct:34.12, promoPriceIdr:85_000, promoMarginPct:14.74, minStock:500, reorderPoint:800, currentStock:320, bufferPct:40, warehouse:'WH-Jakarta', status:'Active', approvalStatus:'Confirmed', hsCode:'4012.90.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
+  { id:'p5', code:'ASC-1100-20TR78', brand:'ASCENDO', category:'Tube', size:'11.00-20', pattern:'TR78', pr:'HD', type1:'Tube', type2:'TB', type3:'Heavy Duty', fobUsd:18.40, cifUsd:19.80, whPriceIdr:349_740, retailPriceIdr:420_000, wholesalePriceIdr:480_000, retailMarginPct:16.73, wholesaleMarginPct:27.14, promoPriceIdr:380_000, promoMarginPct:7.97, minStock:200, reorderPoint:300, currentStock:548, bufferPct:182, warehouse:'WH-Surabaya', status:'Active', approvalStatus:'Confirmed', hsCode:'4013.10.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
+  { id:'p6', code:'ASC-FLAP-10R20-S', brand:'ASCENDO', category:'Flap', size:'10.00/11.00R20(S)', pattern:'-', pr:'-', type1:'Flap', type2:'TB', type3:'Metal Plate', fobUsd:3.80, cifUsd:4.10, whPriceIdr:72_468, retailPriceIdr:95_000, wholesalePriceIdr:110_000, retailMarginPct:23.72, wholesaleMarginPct:34.12, promoPriceIdr:85_000, promoMarginPct:14.74, minStock:500, reorderPoint:800, currentStock:320, bufferPct:40, warehouse:'WH-Surabaya', status:'Active', approvalStatus:'Confirmed', hsCode:'4012.90.00', fxRate:17_500, lastFxUpdate:'2026-03-01' },
 ];
 
 // ─── Price History ────────────────────────────────────────────────────────────
@@ -277,30 +277,3 @@ export const priceHistories: PriceHistory[] = [
   { id:'ph9', productCode:'ASC-1100-20TR78', productDesc:'ASC 11.00-20 TR78', date:'2026-03-10', priceType:'Retail', oldPrice:390_000, newPrice:420_000, changeReason:'Raw material cost increase', changedBy:'Dewi P.', fxRateAtChange:17_580, approvedBy:'Division Head' },
 ];
 
-// ─── Sales Analysis Data ─────────────────────────────────────────────────────
-export const monthlySalesTrend = [
-  { month:'Oct', sales:8_124_000_000, margin:852_000_000, marginPct:10.5 },
-  { month:'Nov', sales:9_234_000_000, margin:924_000_000, marginPct:10.0 },
-  { month:'Dec', sales:11_450_000_000, margin:1_201_000_000, marginPct:10.5 },
-  { month:'Jan', sales:7_820_000_000, margin:820_000_000, marginPct:10.5 },
-  { month:'Feb', sales:8_980_000_000, margin:940_000_000, marginPct:10.5 },
-  { month:'Mar', sales:9_741_000_000, margin:1_021_000_000, marginPct:10.5 },
-];
-
-export const salesByRep = [
-  { rep:'Budi S.', sales:132_240_000, margin:30_172_000, marginPct:22.8, orders:5, customers:3 },
-  { rep:'Ahmad R.', sales:93_040_000, margin:21_310_000, marginPct:22.9, orders:4, customers:3 },
-  { rep:'Sari W.', sales:26_580_000, margin:5_634_000, marginPct:21.2, orders:4, customers:3 },
-  { rep:'Dewi P.', sales:20_700_000, margin:4_422_000, marginPct:21.4, orders:4, customers:4 },
-];
-
-export const marginByProductType = [
-  { name:'TIRE TB_R', qty:3_347, sales:9_145_621_995, margin:1_134_447_630, marginPct:12.4 },
-  { name:'TIRE IND', qty:1_511, sales:2_560_444_814, margin:305_483_605, marginPct:11.9 },
-  { name:'TIRE AGR', qty:403, sales:880_566_491, margin:257_957_955, marginPct:29.3 },
-  { name:'TUBE TB', qty:34_595, sales:6_743_641_696, margin:476_786_099, marginPct:7.1 },
-  { name:'TUBE OTR', qty:4_000, sales:1_566_958_364, margin:231_884_713, marginPct:14.8 },
-  { name:'FLAP TB', qty:19_606, sales:1_122_425_681, margin:248_953_241, marginPct:22.2 },
-  { name:'TIRE OTR', qty:27, sales:139_955_942, margin:29_675_527, marginPct:21.2 },
-  { name:'TIRE TB_B', qty:1_225, sales:2_191_229_304, margin:154_368_297, marginPct:7.0 },
-];

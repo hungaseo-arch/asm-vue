@@ -120,12 +120,12 @@ const maxQBar = computed(() => Math.max(...quarterlyData.value.map((d) => d.amou
                 <tr v-for="c in filtered" :key="c.id" @click="toggleSelect(c.id)"
                   :class="['border-b border-border/50 cursor-pointer transition-colors', selectedId === c.id ? 'bg-primary/5' : 'hover:bg-muted/20', c.status === 'On Hold' ? 'bg-destructive/5' : '']">
                   <td class="px-3 py-2.5 font-mono text-[10px] text-foreground">{{ c.code }}</td>
-                  <td class="px-3 py-2.5 font-medium text-foreground max-w-[140px] truncate">{{ c.name }}</td>
+                  <td class="px-3 py-2.5 font-medium text-foreground max-w-35 truncate">{{ c.name }}</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ c.city }}</td>
                   <td class="px-3 py-2.5">
                     <span :class="['text-[10px] px-2 py-0.5 rounded-full font-medium border', c.channel === 'Wholesale' ? 'bg-primary/10 text-primary border-primary/20' : 'bg-accent/10 text-accent border-accent/20']">{{ c.channel }}</span>
                   </td>
-                  <td class="px-3 py-2.5 min-w-[120px]">
+                  <td class="px-3 py-2.5 min-w-30">
                     <div class="space-y-0.5">
                       <div class="h-1.5 bg-muted rounded-full overflow-hidden">
                         <div :class="['h-full rounded-full transition-all', creditBarColor(creditPct(c.creditUsed, c.creditLimit))]" :style="{ width: `${creditPct(c.creditUsed, c.creditLimit)}%` }" />

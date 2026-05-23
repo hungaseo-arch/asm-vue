@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import Layout from '@/components/Layout.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ApprovalStepper from '@/components/ApprovalStepper.vue'
-import { approvalSteps, fmtUSD, fmtIDR, fmtNum } from '@/lib/index'
+import { fmtUSD, fmtIDR, fmtNum } from '@/lib/index'
 import { poLineItems } from '@/data'
 import { Save, Send, ChevronDown, Plus, Trash2, AlertCircle } from 'lucide-vue-next'
 import type { POLineItem } from '@/lib/index'
@@ -15,7 +15,7 @@ const supplierOptions = [
   'Zhongce Rubber Group Co.',
   'Shandong Haian Rubber Co.',
 ]
-const warehouses = ['WH-Jakarta', 'WH-Surabaya', 'WH-Karawang', 'WH-Semarang']
+const warehouses = ['WH-Surabaya', 'WH-Karawang', 'WH-Semarang']
 
 const approvalStatus = ref('Draft')
 const fxRate = ref(17_580)
@@ -76,7 +76,7 @@ const inputCls = 'w-full h-9 px-3 text-sm rounded-md border border-input focus:o
     <div class="p-6 space-y-5">
 
       <PageHeader
-        title="New PO (Purchase Order Registration)"
+        title="Create PO"
         subtitle="Create a new purchase order and request approval through the approval line"
       >
         <template #actions>
@@ -91,24 +91,24 @@ const inputCls = 'w-full h-9 px-3 text-sm rounded-md border border-input focus:o
         </template>
       </PageHeader>
 
-      <!-- Improvement Banner -->
-      <div class="bg-chart-3/10 border border-chart-3/30 rounded-lg px-4 py-3 flex items-start gap-3">
-        <AlertCircle class="w-4 h-4 text-chart-3 mt-0.5 shrink-0" />
-        <div>
-          <p class="text-sm font-medium text-chart-3">💡 Improvement Planned</p>
-          <p class="text-xs text-muted-foreground mt-0.5">
-            When FOB price is entered, CIF·Landed Cost·WH Price will be auto-calculated based on current FX rate ({{ fmtNum(fxRate) }} IDR/USD). Import duty (5%), customs clearance fee, and inland freight will be automatically applied.
-          </p>
+      <!-- Improvement Banner + Approval Stepper -->
+      <div class="flex items-stretch gap-4">
+        <div class="flex-1 bg-chart-3/10 border border-chart-3/30 rounded-lg px-4 py-3 flex items-start gap-3">
+          <AlertCircle class="w-4 h-4 text-chart-3 mt-0.5 shrink-0" />
+          <div>
+            <p class="text-sm font-medium text-chart-3">💡 Improvement Planned</p>
+            <p class="text-xs text-muted-foreground mt-0.5">
+              When FOB price is entered, CIF·Landed Cost·WH Price will be auto-calculated based on current FX rate ({{ fmtNum(fxRate) }} IDR/USD). Import duty (5%), customs clearance fee, and inland freight will be automatically applied.
+            </p>
+          </div>
         </div>
-      </div>
-
-      <!-- Approval Stepper -->
-      <div class="bg-card rounded-xl border border-border p-4">
-        <div class="flex items-center justify-between mb-4">
-          <p class="text-sm font-semibold text-foreground">Approval Progress</p>
-          <span class="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded font-mono">ASM-PO-2603-NEW</span>
+        <div class="bg-card rounded-xl border border-border p-4 w-1/2 shrink-0">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm font-semibold text-foreground">Approval Progress</p>
+            <span class="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded font-mono">ASM-PO-2603-NEW</span>
+          </div>
+          <ApprovalStepper :steps="['Draft','Team Leader','Purchase Manager','Division Head']" :current-step="approvalStatus" />
         </div>
-        <ApprovalStepper :steps="approvalSteps" :current-step="approvalStatus" />
       </div>
 
       <!-- I. Supplier Information -->

@@ -5,7 +5,7 @@ import PageHeader from '@/components/PageHeader.vue'
 import StatusBadge from '@/components/StatusBadge.vue'
 import ApprovalStepper from '@/components/ApprovalStepper.vue'
 import { purchaseOrders } from '@/data'
-import { poStatusColor, approvalSteps, fmtUSD, fmtIDR } from '@/lib/index'
+import { poStatusColor, approvalSteps, fmtUSD, fmtIDR, fmtNum } from '@/lib/index'
 import type { POStatus } from '@/lib/index'
 import { Search, Filter, Download, Eye, CheckCircle2, XCircle } from 'lucide-vue-next'
 
@@ -115,11 +115,11 @@ const improvements = [
                   :class="['border-b border-border/50 transition-colors cursor-pointer', selectedId === po.id ? 'bg-primary/5' : 'hover:bg-muted/30']"
                 >
                   <td class="px-4 py-2.5 font-mono text-foreground font-medium">{{ po.poNo }}</td>
-                  <td class="px-3 py-2.5 text-muted-foreground max-w-[120px] truncate">
+                  <td class="px-3 py-2.5 text-muted-foreground max-w-30 truncate">
                     {{ po.supplier.split(' ').slice(0, 2).join(' ') }}
                   </td>
-                  <td class="px-3 py-2.5 text-foreground max-w-[140px] truncate">{{ po.productDesc }}</td>
-                  <td class="px-3 py-2.5 text-right font-mono text-foreground">{{ po.qty.toLocaleString() }}</td>
+                  <td class="px-3 py-2.5 text-foreground max-w-35 truncate">{{ po.productDesc }}</td>
+                  <td class="px-3 py-2.5 text-right font-mono text-foreground">{{ fmtNum(po.qty) }}</td>
                   <td class="px-3 py-2.5 text-right font-mono font-semibold text-foreground">{{ fmtUSD(po.totalUsd) }}</td>
                   <td class="px-3 py-2.5 text-center">
                     <StatusBadge :label="po.status" :color-class="poStatusColor[po.status]" />
@@ -162,7 +162,7 @@ const improvements = [
                   { label: 'ETA',         value: selected.etaDate },
                   { label: 'Warehouse',   value: selected.warehouse },
                   { label: 'Handler',     value: selected.buyer },
-                  { label: 'Qty',         value: `${selected.qty.toLocaleString()} ${selected.unit}` },
+                  { label: 'Qty',         value: `${fmtNum(selected.qty)} ${selected.unit}` },
                   { label: 'Total (USD)', value: fmtUSD(selected.totalUsd),    bold: true },
                   { label: 'Total (IDR)', value: fmtIDR(selected.totalIdr),    bold: true },
                 ]" :key="row.label" class="flex items-start justify-between gap-2">

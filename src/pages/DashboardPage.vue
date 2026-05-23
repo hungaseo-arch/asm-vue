@@ -64,8 +64,8 @@ const deliveryCompletion = computed(() =>
 )
 
 const quickLinks = computed(() => [
-  { label: 'New PO',        sub: 'New Order',       path: ROUTE_PATHS.PO_CREATE,     icon: PackageCheck,  bg: 'bg-chart-2/10 text-chart-2' },
-  { label: 'New SO',        sub: 'Sales Order',      path: ROUTE_PATHS.SALES_ORDER,   icon: ShoppingCart,  bg: 'bg-primary/10 text-primary' },
+  { label: 'Create PO',        sub: 'New Order',       path: ROUTE_PATHS.PO_CREATE,     icon: PackageCheck,  bg: 'bg-chart-2/10 text-chart-2' },
+  { label: 'New SO',        sub: 'Sales Order',      path: ROUTE_PATHS.CREATE_SO,   icon: ShoppingCart,  bg: 'bg-primary/10 text-primary' },
   { label: 'Goods Receipt', sub: 'Inspection & NG',  path: ROUTE_PATHS.GOODS_RECEIPT, icon: CheckCircle2,  bg: 'bg-chart-1/10 text-chart-1' },
   { label: 'Suppliers',     sub: 'Performance',      path: ROUTE_PATHS.SUPPLIER,      icon: Users,         bg: 'bg-accent/10 text-accent' },
   { label: 'Cost Analysis', sub: 'FOB→Selling',      path: ROUTE_PATHS.COST_ANALYSIS, icon: TrendingUp,    bg: 'bg-chart-3/10 text-chart-3' },
@@ -110,7 +110,7 @@ function areaPath(data: number[], w: number, h: number) {
       <!-- ── Header ── -->
       <div class="flex items-start justify-between">
         <div>
-          <h1 class="text-xl font-bold text-foreground">ASM ERP — Integrated Dashboard</h1>
+          <h1 class="text-xl font-bold text-foreground">ASM V2 — Integrated Dashboard</h1>
           <p class="text-sm text-muted-foreground mt-0.5">
             Sales · Procurement · Inventory · Customer Overview | As of: 2026-03-17
           </p>
@@ -121,10 +121,10 @@ function areaPath(data: number[], w: number, h: number) {
             @click="router.push(ROUTE_PATHS.PO_CREATE)"
             class="flex items-center gap-1.5 h-8 px-3 text-xs rounded-md border border-border bg-background hover:bg-muted transition-colors"
           >
-            <Plus class="w-3.5 h-3.5" />New PO
+            <Plus class="w-3.5 h-3.5" />Create PO
           </button>
           <button
-            @click="router.push(ROUTE_PATHS.SALES_ORDER)"
+            @click="router.push(ROUTE_PATHS.CREATE_SO)"
             class="flex items-center gap-1.5 h-8 px-3 text-xs rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             <Plus class="w-3.5 h-3.5" />New SO
@@ -172,7 +172,7 @@ function areaPath(data: number[], w: number, h: number) {
         <div class="flex items-center gap-2 mb-3">
           <ShoppingCart class="w-4 h-4 text-primary" />
           <p class="text-sm font-semibold text-foreground">Sales Overview</p>
-          <button @click="router.push(ROUTE_PATHS.SALES_ORDER)"
+          <button @click="router.push(ROUTE_PATHS.CREATE_SO)"
             class="ml-auto text-xs text-primary hover:underline flex items-center gap-0.5">
             Go<ArrowRight class="w-3 h-3" />
           </button>
@@ -227,7 +227,7 @@ function areaPath(data: number[], w: number, h: number) {
             <p class="text-sm font-semibold text-foreground">Monthly Sales vs PO Orders (6M)</p>
             <span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full">IDR(M) / USD(K)</span>
           </div>
-          <svg viewBox="0 0 560 200" class="w-full h-[200px]">
+          <svg viewBox="0 0 560 200" class="w-full h-50">
             <defs>
               <linearGradient id="salesGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%"  stop-color="var(--primary)" stop-opacity="0.3" />
@@ -300,7 +300,7 @@ function areaPath(data: number[], w: number, h: number) {
         <div class="col-span-2 bg-card rounded-xl border border-border overflow-hidden">
           <div class="px-4 py-3 border-b border-border flex items-center justify-between">
             <p class="text-sm font-semibold text-foreground">Recent Sales Orders</p>
-            <button @click="router.push(ROUTE_PATHS.SALES_ORDER)"
+            <button @click="router.push(ROUTE_PATHS.CREATE_SO)"
               class="text-xs text-primary hover:underline flex items-center gap-0.5">
               View All<ArrowRight class="w-3 h-3" />
             </button>
@@ -366,7 +366,7 @@ function areaPath(data: number[], w: number, h: number) {
             <div class="space-y-2">
               <div v-for="p in products" :key="p.id" class="text-xs">
                 <div class="flex justify-between mb-0.5">
-                  <span :class="['text-muted-foreground truncate max-w-[100px]', p.currentStock < p.minStock && 'text-destructive font-medium']">
+                  <span :class="['text-muted-foreground truncate max-w-25', p.currentStock < p.minStock && 'text-destructive font-medium']">
                     {{ p.size }}
                   </span>
                   <span :class="['font-mono font-semibold', p.currentStock < p.minStock ? 'text-destructive' : 'text-chart-1']">
@@ -429,7 +429,7 @@ function areaPath(data: number[], w: number, h: number) {
                   <span class="text-[10px] px-2 py-0.5 rounded bg-chart-1/10 text-chart-1 border border-chart-1/20 font-medium">SO</span>
                 </td>
                 <td class="px-4 py-2.5 font-mono font-medium text-foreground">{{ so.soNo }}</td>
-                <td class="px-4 py-2.5 text-foreground max-w-[140px] truncate">{{ so.customerName }}</td>
+                <td class="px-4 py-2.5 text-foreground max-w-35 truncate">{{ so.customerName }}</td>
                 <td class="px-4 py-2.5 font-mono font-semibold text-foreground">{{ fmtIDRCompact(so.totalAmount) }}</td>
                 <td class="px-4 py-2.5">
                   <span class="text-[10px] px-2 py-0.5 rounded bg-chart-3/10 text-chart-3 border border-chart-3/20 font-medium">
@@ -446,7 +446,7 @@ function areaPath(data: number[], w: number, h: number) {
                   <span class="text-[10px] px-2 py-0.5 rounded bg-chart-2/10 text-chart-2 border border-chart-2/20 font-medium">PO</span>
                 </td>
                 <td class="px-4 py-2.5 font-mono font-medium text-foreground">{{ po.poNo }}</td>
-                <td class="px-4 py-2.5 text-foreground max-w-[140px] truncate">{{ po.supplier.slice(0, 18) }}…</td>
+                <td class="px-4 py-2.5 text-foreground max-w-35 truncate">{{ po.supplier.slice(0, 18) }}…</td>
                 <td class="px-4 py-2.5 font-mono font-semibold text-foreground">{{ fmtUSD(po.totalUsd) }}</td>
                 <td class="px-4 py-2.5">
                   <span class="text-[10px] px-2 py-0.5 rounded bg-chart-3/10 text-chart-3 border border-chart-3/20 font-medium">

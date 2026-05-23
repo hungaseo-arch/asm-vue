@@ -128,7 +128,7 @@ const tabs = [
       <div v-if="tab === 'dashboard'" class="space-y-5">
         <div class="grid grid-cols-5 gap-4">
           <div v-for="kpi in overviewKpis" :key="kpi.l" class="bg-card rounded-xl border border-border p-4 flex items-center gap-3">
-            <div :class="`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${kpi.bg}`">
+            <div :class="`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${kpi.bg}`">
               <component :is="kpi.icon" class="w-4 h-4" :class="kpi.color" />
             </div>
             <div><p class="text-xs text-muted-foreground">{{ kpi.l }}</p><p class="text-lg font-bold font-mono text-foreground">{{ kpi.v }}</p><p class="text-[10px] text-muted-foreground">{{ kpi.sub }}</p></div>
@@ -170,7 +170,7 @@ const tabs = [
             </svg>
             <div class="grid grid-cols-2 gap-x-2 gap-y-1 mt-2">
               <div v-for="(p, i) in productData" :key="p.name" class="flex items-center gap-1.5 text-[10px] text-muted-foreground">
-                <div class="w-2 h-2 rounded-full flex-shrink-0" :style="{ background: COLORS[i % COLORS.length] }" />
+                <div class="w-2 h-2 rounded-full shrink-0" :style="{ background: COLORS[i % COLORS.length] }" />
                 <span class="truncate">{{ p.name.replace('TIRE ','').replace('TUBE ','T-') }}</span>
               </div>
             </div>
@@ -258,7 +258,7 @@ const tabs = [
             <p class="text-sm font-semibold text-foreground mb-4">Margin Rate by Rep</p>
             <div class="space-y-3">
               <div v-for="r in [...repData].sort((a,b)=>b.margin-a.margin)" :key="r.name" class="flex items-center gap-3 text-xs">
-                <span class="text-muted-foreground w-20 flex-shrink-0 text-right">{{ r.name.split(' ')[0] }}</span>
+                <span class="text-muted-foreground w-20 shrink-0 text-right">{{ r.name.split(' ')[0] }}</span>
                 <div class="flex-1 h-5 bg-muted rounded-r-md overflow-hidden">
                   <div class="h-full rounded-r-md flex items-center pl-2 text-[10px] text-white font-medium"
                     :style="{ width: `${(r.margin / 30) * 100}%`, background: r.margin >= 22 ? 'var(--chart-1)' : r.margin >= 18 ? 'var(--chart-3)' : 'var(--destructive)' }">
@@ -279,7 +279,7 @@ const tabs = [
             <p class="text-sm font-semibold text-foreground mb-4">Revenue by Product Type</p>
             <div class="space-y-2">
               <div v-for="(p, i) in sortedProduct()" :key="p.name" class="flex items-center gap-3 text-xs">
-                <span class="text-muted-foreground w-20 flex-shrink-0 text-right">{{ p.name }}</span>
+                <span class="text-muted-foreground w-20 shrink-0 text-right">{{ p.name }}</span>
                 <div class="flex-1 h-5 bg-muted rounded-r-md overflow-hidden">
                   <div class="h-full rounded-r-md flex items-center pl-2 text-[10px] text-white font-medium"
                     :style="{ width: `${(p.sales / maxProdSales) * 100}%`, background: COLORS[i % COLORS.length] }">
@@ -344,7 +344,7 @@ const tabs = [
             {l:'Fastest Growing City',v:'Balikpapan +32%',icon:TrendingUp,bg:'bg-chart-3/10',color:'text-chart-3'},
             {l:'Declining Region',v:'Pekanbaru -2.4%',icon:AlertCircle,bg:'bg-destructive/10',color:'text-destructive'},
           ]" :key="k.l" class="bg-card rounded-xl border border-border p-4 flex items-center gap-3">
-            <div :class="`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${k.bg}`">
+            <div :class="`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${k.bg}`">
               <component :is="k.icon" class="w-4 h-4" :class="k.color" />
             </div>
             <div><p class="text-xs text-muted-foreground">{{ k.l }}</p><p class="text-base font-bold text-foreground">{{ k.v }}</p></div>
@@ -369,7 +369,7 @@ const tabs = [
             <p class="text-sm font-semibold text-foreground mb-4">YoY Growth Rate by City</p>
             <div class="space-y-3">
               <div v-for="r in sortedRegion()" :key="r.city" class="flex items-center gap-3 text-xs">
-                <span class="text-muted-foreground w-16 flex-shrink-0">{{ r.city }}</span>
+                <span class="text-muted-foreground w-16 shrink-0">{{ r.city }}</span>
                 <div class="flex-1 h-5 bg-muted/30 rounded-md overflow-hidden">
                   <div :class="['h-full rounded-md flex items-center justify-end pr-2 text-[10px] font-semibold', r.growth > 0 ? 'bg-chart-1/70 text-white' : 'bg-destructive/60 text-white']"
                     :style="{ width: `${Math.min(100, Math.abs(r.growth) * 2.5)}%` }">
@@ -401,11 +401,11 @@ const tabs = [
                   </td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ r.reps.join(', ') }}</td>
                   <td v-for="(v, qi) in [r.q1, r.q2, r.q3, r.q4]" :key="qi" class="px-3 py-2.5">
-                    <span :class="['inline-block px-2 py-0.5 rounded font-mono font-semibold text-[11px]', heatColor(v, 6200)]">{{ v.toLocaleString() }}</span>
+                    <span :class="['inline-block px-2 py-0.5 rounded font-mono font-semibold text-[11px]', heatColor(v, 6200)]">{{ fmtNum(v) }}</span>
                   </td>
-                  <td class="px-3 py-2.5 font-mono font-bold text-foreground">{{ r.total.toLocaleString() }}</td>
+                  <td class="px-3 py-2.5 font-mono font-bold text-foreground">{{ fmtNum(r.total) }}</td>
                   <td class="px-3 py-2.5"><span :class="['text-xs font-semibold', r.growth > 0 ? 'text-chart-1' : 'text-destructive']">{{ r.growth > 0 ? '+' : '' }}{{ r.growth }}%</span></td>
-                  <td class="px-3 py-2.5 text-muted-foreground max-w-[140px] truncate">{{ r.topProduct }}</td>
+                  <td class="px-3 py-2.5 text-muted-foreground max-w-35 truncate">{{ r.topProduct }}</td>
                 </tr>
               </tbody>
             </table>

@@ -16,7 +16,7 @@ const statusColor: Record<ProductStatus, string> = {
   Discontinued: 'bg-destructive/20 text-destructive border-destructive/40',
 }
 
-const WAREHOUSES = ['All', 'WH-Jakarta', 'WH-Surabaya', 'WH-Karawang', 'WH-Semarang']
+const WAREHOUSES = ['All', 'WH-Surabaya', 'WH-Karawang', 'WH-Semarang']
 const PRICE_TYPES = ['All', 'WH Price', 'Retail', 'Wholesale', 'Promo']
 
 // React: multiple useState → Vue: multiple refs
@@ -247,7 +247,7 @@ function stockTextColor(p: typeof products[0]) {
                 <tr v-for="prod in invFiltered" :key="prod.id"
                   :class="['border-b border-border/50 hover:bg-muted/20', prod.currentStock < prod.minStock ? 'bg-destructive/5' : '']">
                   <td class="px-3 py-2.5 font-mono text-[10px] text-foreground">{{ prod.code }}</td>
-                  <td class="px-3 py-2.5 font-medium text-foreground max-w-[160px]">{{ prod.brand }} {{ prod.size }} {{ prod.pattern }} {{ prod.pr }}PR</td>
+                  <td class="px-3 py-2.5 font-medium text-foreground max-w-40">{{ prod.brand }} {{ prod.size }} {{ prod.pattern }} {{ prod.pr }}PR</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ prod.type1 }}</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ prod.warehouse }}</td>
                   <td class="px-3 py-2.5 font-mono font-semibold" :class="stockTextColor(prod)">{{ fmtNum(prod.currentStock) }}</td>
@@ -299,7 +299,7 @@ function stockTextColor(p: typeof products[0]) {
               <tbody>
                 <tr v-for="ph in filteredPH" :key="ph.id" class="border-b border-border/50 hover:bg-muted/20">
                   <td class="px-3 py-2.5 font-mono text-muted-foreground">{{ ph.date }}</td>
-                  <td class="px-3 py-2.5 text-foreground max-w-[150px] truncate font-medium">{{ ph.productDesc }}</td>
+                  <td class="px-3 py-2.5 text-foreground max-w-37.5 truncate font-medium">{{ ph.productDesc }}</td>
                   <td class="px-3 py-2.5"><span class="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">{{ ph.priceType }}</span></td>
                   <td class="px-3 py-2.5 font-mono text-muted-foreground">{{ fmtIDR(ph.oldPrice) }}</td>
                   <td class="px-3 py-2.5 font-mono font-semibold text-foreground">{{ fmtIDR(ph.newPrice) }}</td>
@@ -311,7 +311,7 @@ function stockTextColor(p: typeof products[0]) {
                       ({{ (ph.newPrice - ph.oldPrice) > 0 ? '+' : '' }}{{ (((ph.newPrice - ph.oldPrice) / ph.oldPrice) * 100).toFixed(1) }}%)
                     </span>
                   </td>
-                  <td class="px-3 py-2.5 text-muted-foreground max-w-[180px] truncate">{{ ph.changeReason }}</td>
+                  <td class="px-3 py-2.5 text-muted-foreground max-w-45 truncate">{{ ph.changeReason }}</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ ph.changedBy }}</td>
                   <td class="px-3 py-2.5 font-mono text-muted-foreground">{{ fmtNum(ph.fxRateAtChange) }}</td>
                   <td class="px-3 py-2.5 text-muted-foreground">{{ ph.approvedBy }}</td>
