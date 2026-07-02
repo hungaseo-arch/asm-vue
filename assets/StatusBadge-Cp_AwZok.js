@@ -1,0 +1,1 @@
+import{Y as e,Z as t,b as n,f as r,g as i,j as a}from"./vue-router-KyXrv5qd.js";import{f as o}from"./Layout-ycmc0Evv.js";var s=i({__name:`StatusBadge`,props:{label:{},colorClass:{}},setup(i){return(s,c)=>(n(),r(`span`,{class:e(a(o)(`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border`,i.colorClass))},t(i.label),3))}});export{s as t};
